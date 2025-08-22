@@ -12,11 +12,10 @@ html, body {
   overflow: hidden; 
 }
 
-/* Envelope */
 .envelope {
-  width: 100px;
-  height: 70px;
-  background: #e5c07b;
+  width: 120px;
+  height: 80px;
+  background: #f4d58d; /* envelope body */
   position: fixed;
   top: 30px;
   right: 30px;
@@ -25,11 +24,48 @@ html, body {
   z-index: 1001;
   transition: transform 0.3s ease;
   border-radius: 4px;
-  display:none;
+  display: none;
+
+  /* subtle depth */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
+/* envelope flap (pointing down now) */
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-top: 40px solid #a87d3a; /* same as body color */
+  border-radius: 2px;
+}
+
+
+/* hover effect */
 .envelope:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+/* inner fold line */
+.envelope::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #a87d3a;
+}
+
+/* hover effect */
+.envelope:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
 /* Letter (center, hidden by default) */
@@ -40,22 +76,42 @@ html, body {
   transform: translate(-50%, -50%) scale(0.8);
   width: 60%;
   max-width: 600px;
-  max-height: 450px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9); /* semi-transparent */
-  border: 2px solid #ccc;
-  color: black;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  max-height: 500px;
+  padding: 25px 30px;
+
+  /* parchment look */
+  background: #f5deb3; /* base parchment color */
+  background: linear-gradient(135deg, #f5deb3, #deb887);
+  border: 2px solid #a87d3a;
+  border-radius: 10px;
+
+  /* handwritten style */
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #3e2c1c;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.8s ease, transform 0.8s ease;
   z-index: 1000;
-  border-radius: 8px;
 
   overflow-y: auto;  /* make scrollable */
   scrollbar-width: thin; /* Firefox */
+}
+
+/* custom scrollbar (for Chrome/Edge) */
+.letter::-webkit-scrollbar {
+  width: 6px;
+}
+.letter::-webkit-scrollbar-track {
+  background: #f5deb3;
+  border-radius: 4px;
+}
+.letter::-webkit-scrollbar-thumb {
+  background: #a87d3a;
+  border-radius: 4px;
 }
 
 /* Mobile optimization */
@@ -286,8 +342,8 @@ body {
   width: 8vmin;
   height: 11vmin;
   border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-color: #DA70D6;
-  background-image: linear-gradient(to top, #DA70D6, #9932CC);
+  background-color: #6B4423;
+  background-image: linear-gradient(to top,#6B4423 , #D2B48C);
   transform-origin: bottom center;
   opacity: 0.9;
   box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
@@ -301,13 +357,14 @@ body {
 .flower__leaf--3 {
   transform: translate(-90%, 0%) rotateY(45deg) rotateX(50deg);
 }
+
 .flower__leaf--4 {
   width: 8vmin;
   height: 8vmin;
   transform-origin: bottom left;
   border-radius: 4vmin 10vmin 4vmin 4vmin;
   transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
-  background-image: linear-gradient(to top, #ee5286, #ee5286);
+  background-image: linear-gradient(to top, #6B4423, #D2B48C);
   z-index: 1;
   opacity: 0.8;
 }
