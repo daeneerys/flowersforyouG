@@ -368,8 +368,8 @@ body {
   width: 8vmin;
   height: 11vmin;
   border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-color: #0f52ba;
-  background-image: linear-gradient(to top, #0f52ba, #0f52ba);
+  background-color: #a8c3bc;
+  background-image: linear-gradient(to top, #d16ea0, #a8c3bc);
   transform-origin: bottom center;
   opacity: 0.9;
   box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
@@ -390,7 +390,7 @@ body {
   transform-origin: bottom left;
   border-radius: 4vmin 10vmin 4vmin 4vmin;
   transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
-  background-image: linear-gradient(to top, #0f52ba, #0f52ba);
+  background-image: linear-gradient(to top, #a8c3bc, #d16ea0);
   z-index: 1;
   opacity: 0.8;
 }
@@ -517,7 +517,7 @@ body {
       transparent 1px,
       transparent 12px
     ),
-    linear-gradient(90deg, #0f52ba, #0f52ba);
+    linear-gradient(90deg, #d16ea0, #a8c3bc);
 }
 
 .flower__line {
@@ -583,7 +583,7 @@ body {
   bottom: 0vmin;
   width: 1vmin;
   height: 1vmin;
-  background-color: rgb(255, 251, 0);
+  background-color: #a8c3bc;
   border-radius: 50%;
   filter: blur(0.2vmin);
   -webkit-animation: light-ans 4s linear infinite backwards;
