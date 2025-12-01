@@ -16,19 +16,17 @@ body {
 .envelope {
   width: 120px;
   height: 80px;
-  background: #f4d58d; /* envelope body */
+  background: #d32f2f; /* Christmas Red */
   position: fixed;
   top: 30px;
   right: 30px;
-  border: 2px solid #a87d3a;
+  border: 2px solid #ffffff; /* White border */
   cursor: pointer;
   z-index: 1001;
   transition: transform 0.3s ease;
   border-radius: 4px;
   display: none;
-
-  /* subtle depth */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* envelope flap (pointing down now) */
@@ -41,7 +39,7 @@ body {
   height: 0;
   border-left: 60px solid transparent;
   border-right: 60px solid transparent;
-  border-top: 40px solid #a87d3a; /* same as body color */
+  border-top: 40px solid #fff; /* Matches body color */
   border-radius: 2px;
 }
 
@@ -59,7 +57,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: #a87d3a;
+  background: #9a0007; /* Darker red shadow */
 }
 
 /* hover effect */
@@ -79,26 +77,25 @@ body {
   max-height: 500px;
   padding: 25px 30px;
 
-  /* parchment look */
-  background: #f5deb3; /* base parchment color */
-  background: linear-gradient(135deg, #f5deb3, #deb887);
-  border: 2px solid #a87d3a;
+  /* White Christmas Paper */
+  background: #ffffff;
+  border: 3px solid #d32f2f; /* Red Border */
   border-radius: 10px;
 
-  /* handwritten style */
+  /* Handwritten style */
   font-family: "Dancing Script", cursive;
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #3e2c1c;
+  color: #8b0000; /* Dark Red Text */
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2); /* White glow behind letter */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.8s ease, transform 0.8s ease;
   z-index: 1000;
 
-  overflow-y: auto; /* make scrollable */
-  scrollbar-width: thin; /* Firefox */
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 /* custom scrollbar (for Chrome/Edge) */
@@ -175,8 +172,6 @@ body {
   overflow: hidden;
   perspective: 1000px;
   overflow-y: hidden;
-
-  background: linear-gradient(to top, #87ceeb, #ffe484);
 }
 
 /* Night overlay (stars/gradients) */
@@ -221,8 +216,7 @@ body {
     ),
     linear-gradient(90deg, rgb(7, 107, 42), rgb(240, 240, 240));
 
-  opacity: 0; /* hidden during day */
-  animation: starsFade 30s linear forwards; /* fade in same time as sky */
+  opacity: 1; /* hidden during day */
   pointer-events: none;
 }
 
@@ -1732,4 +1726,24 @@ body {
 .container * {
   -webkit-animation-play-state: paused !important;
   animation-play-state: paused !important;
+}
+
+.snowflake {
+  position: fixed;
+  top: -10px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none; /* Allows you to click through the snow */
+  z-index: 999; /* Shows above flowers, but behind the letter/envelope */
+  animation: fall linear forwards;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Glow effect */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(-10px);
+  }
+  100% {
+    transform: translateY(110vh) translateX(10px);
+  }
 }
