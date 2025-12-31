@@ -43,34 +43,4 @@ window.addEventListener("load", () => {
     envelope.style.display = "block";
     clearTimeout(typingTimeout);
   });
-
-  function createSnowflake() {
-    const snowflake = document.createElement("div");
-    snowflake.classList.add("snowflake");
-
-    // Random horizontal position (0 to 100vw)
-    snowflake.style.left = Math.random() * 100 + "vw";
-
-    // Random animation duration (between 2s and 5s)
-    const duration = Math.random() * 3 + 2;
-    snowflake.style.animationDuration = duration + "s";
-
-    // Random opacity (between 0.4 and 1)
-    snowflake.style.opacity = Math.random() * 0.6 + 0.4;
-
-    // Random size (between 3px and 8px)
-    const size = Math.random() * 5 + 3;
-    snowflake.style.width = size + "px";
-    snowflake.style.height = size + "px";
-
-    document.body.appendChild(snowflake);
-
-    // Remove the snowflake after it finishes falling to prevent memory leaks
-    setTimeout(() => {
-      snowflake.remove();
-    }, duration * 1000);
-  }
-
-  // Start the snow
-  setInterval(createSnowflake, 50);
 });
